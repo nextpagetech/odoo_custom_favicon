@@ -9,7 +9,7 @@
                 t-att-href="custom_favicon_data_uri or custom_favicon_legacy_url or x_icon or '/npt_custom_favicon/static/description/icon.png'" />
         </xpath>
         <xpath expr="//title" position="replace">
-            <title t-esc="title or request.env['ir.config_parameter'].sudo().get_param('custom_favicon.branding_app_title') or 'ERP BRo'" />
+            <title t-esc="title or request.env['ir.config_parameter'].sudo().get_param('custom_favicon.branding_app_title') or 'Company ERP'" />
         </xpath>
     </template>
 </odoo>

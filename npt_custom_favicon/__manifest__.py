@@ -2,18 +2,20 @@
 {
     'name': 'Custom Favicon & Branding',
     'version': '18.0.1.0.0',
+    'category': 'Tools',
     'summary': 'Customize browser title, favicon, PWA icon and key Odoo branding touchpoints.',
     'description': """
 Custom Favicon & Branding lets administrators configure the browser-facing identity
-of Odoo, including the application title, favicon, PWA icon, brand promotion logo,
-and documentation redirect URL. The module also includes broader UI/debranding,
-mail/onboarding, settings, inventory reordering, and sales-timesheet adjustments
-present in this package.
+of Odoo 18, including the application title, favicon, PWA icon, brand promotion
+logo and documentation redirect URL.
+
+This package also contains broader active UI/debranding, mail/onboarding, settings,
+inventory reordering and sales-timesheet customizations. Review the complete scope
+before production deployment.
     """,
-    'category': 'Extra Tools',
-    'license': 'LGPL-3',
     'author': 'Next Page Technologies Pvt Ltd',
     'website': 'https://nextpagetechnologies.com',
+    'license': 'LGPL-3',
     'price': 10.0,
     'currency': 'USD',
 
@@ -79,8 +81,9 @@ present in this package.
     },
 
     'images': [
-        'static/description/banner.jpg',
+        'static/description/banner.png',
     ],
+
     'application': False,
     'installable': True,
     'auto_install': False,

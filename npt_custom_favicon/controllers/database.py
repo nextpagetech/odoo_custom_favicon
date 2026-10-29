@@ -13,7 +13,7 @@ from lxml import html
 class NPTDatabase(WebDatabase):
 
     def _get_database_manager_brand_title(self, databases):
-        default_title = (config.get("custom_favicon_default_brand_title") or "ERP BRo").strip()
+        default_title = (config.get("custom_favicon_default_brand_title") or "Company ERP").strip()
         dbname = http.request.db or (databases[0] if len(databases) == 1 else None)
         if not dbname:
             return default_title

@@ -1,35 +1,68 @@
 # Custom Favicon & Branding — Odoo 18
 
-Technical module: `npt_custom_favicon`
-
-Publisher: **Next Page Technologies Pvt Ltd**
+**Technical addon:** `npt_custom_favicon`  
+**Publisher:** Next Page Technologies Pvt Ltd  
+**Website:** https://nextpagetechnologies.com  
+**Odoo version:** 18.0
 
 ## Overview
 
-This Odoo 18 addon provides configurable browser and application branding. Administrators can configure an application title, favicon, PWA app icon, brand promotion logo, and documentation redirect from Odoo settings.
+Custom Favicon & Branding provides configurable browser and application branding for Odoo 18.
+Administrators can configure an application title, upload a favicon, provide a PWA app icon,
+set a brand promotion logo and redirect supported documentation links.
 
-The current package also contains broader active UI/debranding and workflow customizations. These are intentionally disclosed because they are part of the installed module.
+The package also contains broader active customizations beyond favicon management. These include
+selected UI/debranding, mail/onboarding, settings, inventory reordering and sales-timesheet behavior.
+Review the full scope before production deployment.
 
-## Main branding features
+## Main Branding Features
 
-- Configurable application/browser title
+- Configurable browser application title
 - Uploadable favicon
-- Uploadable PWA app icon
-- Brand promotion logo
-- Documentation redirect URL
-- Database manager branding
-- Selected offline/backend/mail/onboarding branding changes
+- Uploadable PWA app icon with generated 192x192 and 512x512 manifest icons
+- Configurable brand promotion logo
+- Documentation-link redirect
+- Selected Odoo branding/debranding adjustments
+- Branded database-manager presentation
 
-## Additional active scope
+## Additional Active Scope
 
-The module also includes selected settings cleanup, inventory reordering-rule automation/custom views, sales-timesheet project/task behavior changes, and mail/user onboarding adjustments. Review the source and test these behaviors before production deployment.
+- Selected settings, dialogs, import helpers and documentation-link changes
+- Mail/user onboarding adjustments
+- Inventory reordering-rule automation and custom views
+- Sales-timesheet project/task creation adjustments
 
-## Compatibility
+## Configuration
 
-- Odoo 18.0
-- Install through the normal Odoo addons mechanism
-- Dependencies are declared in `__manifest__.py`
+Open Odoo Settings and configure the branding fields exposed by the addon:
 
-## Publisher
+1. Application Title
+2. Favicon
+3. PWA App Icon
+4. Brand Promotion Logo
+5. Documentation Redirect URL
 
-Next Page Technologies Pvt Ltd
+Save the settings and refresh the browser when testing browser title/favicon changes.
+
+## Odoo Apps Store Assets
+
+```text
+static/description/
+├── icon.png
+├── banner.png
+├── index.html
+└── images/
+    ├── description_01.png
+    ├── description_02.png
+    └── contact_us.png
+```
+
+## Commercial Information
+
+- Store price: USD 10
+- License: LGPL-3
+
+## Support
+
+**Next Page Technologies Pvt Ltd**  
+https://nextpagetechnologies.com

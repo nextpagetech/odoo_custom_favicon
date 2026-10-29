@@ -4,7 +4,7 @@
         <xpath expr="//t[@t-out]" position="replace">
             <t>
                 <t t-set="brand_title"
-                    t-value="(request.env['ir.config_parameter'].sudo().get_param('custom_favicon.branding_app_title') or 'ERP BRo').strip()"/>
+                    t-value="(request.env['ir.config_parameter'].sudo().get_param('custom_favicon.branding_app_title') or 'Company ERP').strip()"/>
                 <t t-set="redirect_url_raw"
                     t-value="(request.env['ir.config_parameter'].sudo().get_param('custom_favicon.documentation_redirect_url') or '').strip()"/>
                 <t t-set="redirect_url"
