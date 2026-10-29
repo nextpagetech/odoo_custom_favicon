@@ -47,7 +47,7 @@ class NPTDatabase(WebDatabase):
         templates = {}
 
         # Load custom and original QWeb HTML files
-        templates['database_manager'] = self._read_file('custom_favicon/static/src/public/database_manager.qweb.html')
+        templates['database_manager'] = self._read_file('npt_custom_favicon/static/src/public/database_manager.qweb.html')
         templates['master_input'] = self._read_file('web/static/src/public/database_manager.master_input.qweb.html')
         templates['create_form'] = self._read_file('web/static/src/public/database_manager.create_form.qweb.html')
 

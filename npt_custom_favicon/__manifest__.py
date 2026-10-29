@@ -1,24 +1,46 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "custom_favicon",
-
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
-
+    'name': 'Custom Favicon & Branding',
+    'version': '18.0.1.0.0',
+    'summary': 'Customize browser title, favicon, PWA icon and key Odoo branding touchpoints.',
     'description': """
-Long description of module's purpose
+Custom Favicon & Branding lets administrators configure the browser-facing identity
+of Odoo, including the application title, favicon, PWA icon, brand promotion logo,
+and documentation redirect URL. The module also includes broader UI/debranding,
+mail/onboarding, settings, inventory reordering, and sales-timesheet adjustments
+present in this package.
     """,
+    'category': 'Extra Tools',
     'license': 'LGPL-3',
-    'author': "NPT",
-    'website': "https://www.npt.com",
-    'category': 'Uncategorized',
-    'version': '0.1',
+    'author': 'Next Page Technologies Pvt Ltd',
+    'website': 'https://nextpagetechnologies.com',
+    'price': 10.0,
+    'currency': 'USD',
 
-    # any module necessary for this one to work correctly
-    'depends': ['web','base', 'base_setup', 'auth_totp', 'website','hr_attendance', 'sale_timesheet', 'stock', 'product', 'crm','purchase','sale','maintenance','mail', 'mail_plugin','contacts', 'base_import', 'mrp', 'l10n_in','website_links',], #'point_of_sale','sms',
+    'depends': [
+        'web',
+        'base',
+        'base_setup',
+        'auth_totp',
+        'website',
+        'hr_attendance',
+        'sale_timesheet',
+        'stock',
+        'product',
+        'crm',
+        'purchase',
+        'sale',
+        'maintenance',
+        'mail',
+        'mail_plugin',
+        'contacts',
+        'base_import',
+        'mrp',
+        'l10n_in',
+        'website_links',
+    ],
 
-    # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
         'data/module_branding.xml',
         'data/mail_group_replace.xml',
         'views/title_bar_favicon.xml',
@@ -37,32 +59,29 @@ Long description of module's purpose
         'views/welcome_message_replace.xml',
         'views/mail_plugin_login_inherit.xml',
         'views/odoobot_replace.xml',
-        # 'views/web_tour_replace.xml',
-        # 'views/discuss_channel_demo_replace.xml',
-        # 'views/mail_template_override.xml',
         'views/mail_compose_message_views.xml',
         'views/mail_plugin_login.xml',
         'views/remove_odoo_placeholder.xml',
         'views/res_users_views.xml',
-        # 'views/mail_template_odoo.xml',
-        # 'views/hide_sms_crm.xml',
-        
     ],
-    # only loaded in demonstration mode
-    'assets':{
+
+    'assets': {
         'web.assets_backend': [
-            'custom_favicon/static/src/css/hide_sale_preview.css',
-            'custom_favicon/static/src/js/web_title_patch.js',
-            'custom_favicon/static/src/js/dialog_patch.js',
-            'custom_favicon/static/src/js/documentation_link_patch.js',
-             "custom_favicon/static/src/import_data_content/import_data_content.xml",
-             "custom_favicon/static/src/js/error_dialog_patch.js",
-             "custom_favicon/static/src/xml/import_sidepanel_no_docs.xml",
-             "custom_favicon/static/src/xml/import_action.xml",
-        ],
-        'web.assets_frontend': [
-            'custom_favicon/static/src/image/pictures/favicon.ico',
-            
+            'npt_custom_favicon/static/src/css/hide_sale_preview.css',
+            'npt_custom_favicon/static/src/js/web_title_patch.js',
+            'npt_custom_favicon/static/src/js/dialog_patch.js',
+            'npt_custom_favicon/static/src/js/documentation_link_patch.js',
+            'npt_custom_favicon/static/src/import_data_content/import_data_content.xml',
+            'npt_custom_favicon/static/src/js/error_dialog_patch.js',
+            'npt_custom_favicon/static/src/xml/import_sidepanel_no_docs.xml',
+            'npt_custom_favicon/static/src/xml/import_action.xml',
         ],
     },
+
+    'images': [
+        'static/description/banner.jpg',
+    ],
+    'application': False,
+    'installable': True,
+    'auto_install': False,
 }
