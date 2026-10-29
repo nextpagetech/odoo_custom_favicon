@@ -27,7 +27,7 @@ class Users(models.Model):
             .get_param('custom_favicon.branding_app_title', default='')
             .strip()
         )
-        return brand_name or 'ERP BRo'
+        return brand_name or 'Company ERP'
 
     def _init_odoobot(self):
         self.ensure_one()

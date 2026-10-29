@@ -3,7 +3,7 @@
     <data>
         <function model="ir.module.module" name="write">
             <value model="ir.module.module" search="[('name', '=', 'erp_core_installer')]"/>
-            <value eval="{'summary': 'Installs core ERPBRO modules', 'author': 'ERPBRO'}"/>
+            <value eval="{'summary': 'Installs core ERP modules', 'author': 'Next Page Technologies Pvt Ltd'}"/>
         </function>
     </data>
 </odoo>

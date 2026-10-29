@@ -101,7 +101,7 @@ class ResConfigSettings(models.TransientModel):
             .get_param('custom_favicon.branding_app_title', default='')
             .strip()
         )
-        return brand_name or 'ERP BRo'
+        return brand_name or 'Company ERP'
 
     @api.model
     def sync_welcome_message_subject(self):

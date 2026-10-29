@@ -4,7 +4,7 @@ import { session } from "@web/session";
 
 function getBrandTitle() {
     const value = (session.custom_favicon_branding_app_title || "").trim();
-    return value || "ERP BRo";
+    return value || "Company ERP";
 }
 
 function normalizeUrl(url) {
