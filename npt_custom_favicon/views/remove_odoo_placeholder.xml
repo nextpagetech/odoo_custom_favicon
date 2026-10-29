@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Company Form View to empty the website placeholder -->
+        <record id="view_company_form_inherit_empty_placeholder" model="ir.ui.view">
+            <field name="name">res.company.form.inherit.empty.website.placeholder</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='website']" position="attributes">
+                    <attribute name="placeholder"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Inherit Partner Address Form -->
+        <record id="view_partner_address_form_inherit_empty_placeholder" model="ir.ui.view">
+            <field name="name">res.partner.form.address.inherit.empty.website.placeholder</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_address_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='website']" position="attributes">
+                    <attribute name="placeholder"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Inherit Partner Form -->
+        <record id="view_partner_form_inherit_empty_placeholder" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.empty.website.placeholder</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='website']" position="attributes">
+                    <attribute name="placeholder"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Inherit Company Onboarding Form -->
+        <record id="res_company_form_view_onboarding_inherit_empty_placeholder" model="ir.ui.view">
+            <field name="name">res.company.form.view.onboarding.inherit.empty.website.placeholder</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='website']" position="attributes">
+                    <attribute name="placeholder"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Inherit CRM Lead Form -->
+        <record id="crm_lead_view_form_inherit_empty_placeholder" model="ir.ui.view">
+            <field name="name">crm.lead.form.inherit.empty.website.placeholder</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+
+                <!-- Main form group -->
+                <xpath expr="//field[@name='website']" position="attributes">
+                    <attribute name="placeholder"/>
+                </xpath>
+
+                <!-- Lead page contact info -->
+                <xpath expr="//page[@name='lead']//field[@name='website']" position="attributes">
+                    <attribute name="placeholder"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- Website shorten URL template -->
+        <template id="create_shorten_url_inherit_empty_placeholder"
+                inherit_id="website_links.create_shorten_url"
+                name="Create shorten URL - Empty placeholder">
+            <xpath expr="//input[@id='url']" position="attributes">
+                <attribute name="placeholder"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        Inherit Company Form View to empty the website placeholder
+        <record id="view_company_form_inherit_empty_placeholder" model="ir.ui.view">
+            <field name="name">res.company.form.inherit.empty.website.placeholder</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <field name="website" position="attributes">
+                    <attribute name="placeholder"></attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_partner_address_form_inherit_empty_placeholder" model="ir.ui.view">
+            <field name="name">res.partner.form.address.inherit.empty.website.placeholder</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_address_form"/>
+            <field name="arch" type="xml">
+                <field name="website" position="attributes">
+                    <attribute name="placeholder"></attribute>
+                </field>
+            </field>
+        </record>
+
+        Inherit Partner Form to empty website placeholder
+        <record id="view_partner_form_inherit_empty_placeholder" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.empty.website.placeholder</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="website" position="attributes">
+                    <attribute name="placeholder"></attribute>
+                </field>
+            </field>
+        </record>
+
+         Inherit Onboarding Company Form to empty website placeholder
+        <record id="res_company_form_view_onboarding_inherit_empty_placeholder" model="ir.ui.view">
+            <field name="name">res.company.form.view.onboarding.inherit.empty.website.placeholder</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <field name="website" position="attributes">
+                    <attribute name="placeholder"></attribute>
+                </field>
+            </field>
+        </record>
+
+        Inherit CRM Lead Form to clear website placeholder
+        <record id="crm_lead_view_form_inherit_empty_placeholder" model="ir.ui.view">
+            <field name="name">crm.lead.form.inherit.empty.website.placeholder</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+
+                First website field (main form group)
+                <field name="website" widget="url" placeholder="e.g. https://www.odoo.com" position="attributes">
+                    <attribute name="placeholder"></attribute>
+                </field>
+
+                Second website field (lead page contact info)
+                <xpath expr="//page[@name='lead']//field[@name='website']" position="attributes">
+                    <attribute name="placeholder"></attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <template id="create_shorten_url_inherit_empty_placeholder"
+                inherit_id="website_links.create_shorten_url"
+                name="Create shorten URL - Empty placeholder">
+            <xpath expr="//input[@id='url']" position="attributes">
+                <attribute name="placeholder"></attribute>
+            </xpath>
+        </template>
+    </data>
+</odoo> -->

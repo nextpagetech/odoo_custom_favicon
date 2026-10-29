@@ -1,0 +1,7 @@
+<odoo>
+    <template id="npt_edit_website_navbar" inherit_id="website.layout" name="NPT Edit Website Navbar">
+        <xpath expr="//a[contains(@class, 'o_frontend_to_backend_apps_btn')]" position="attributes">
+            <attribute name="title">Go to Apps</attribute>
+        </xpath>
+    </template>
+</odoo>

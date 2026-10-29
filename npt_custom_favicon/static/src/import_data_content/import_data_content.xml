@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="ImportDataContent" t-inherit-mode="extension">
+        <xpath expr="//th[.='Odoo Field']" position="replace">
+            <th scope="col">Field</th>
+        </xpath>
+    </t>
+</templates>

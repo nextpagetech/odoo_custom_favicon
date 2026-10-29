@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <!-- Remove the DocumentationLink from ImportDataSidepanel -->
+    <t t-name="import_sidepanel_no_docs.remove_doc_link"
+       t-inherit="ImportDataSidepanel"
+       t-inherit-mode="extension">
+        <!-- Match the DocumentationLink by its path and remove it -->
+        <xpath expr="//DocumentationLink[contains(@path, 'export_import_data.html')]" position="replace"/>
+    </t>
+</templates>

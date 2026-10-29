@@ -1,0 +1,15 @@
+<odoo>
+    <template id="custom_web_layout" inherit_id="web.layout" name="Custom Favicon in Web Layout">
+        <xpath expr="//link[@rel='shortcut icon']" position="replace">
+            <t t-set="custom_favicon_data_uri"
+                t-value="request.env['ir.http']._get_branding_favicon_data_uri(request.env['ir.config_parameter'].sudo())" />
+            <t t-set="custom_favicon_legacy_url"
+                t-value="(request.env['ir.config_parameter'].sudo().get_param('custom_favicon.branding_favicon_url', default='') or '').strip()" />
+            <link rel="shortcut icon" type="image/x-icon"
+                t-att-href="custom_favicon_data_uri or custom_favicon_legacy_url or x_icon or '/custom_favicon/static/src/image/pictures/favicon.ico'" />
+        </xpath>
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or request.env['ir.config_parameter'].sudo().get_param('custom_favicon.branding_app_title') or 'ERP BRo'" />
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="mail_plugin_app_auth_inherit" inherit_id="mail_plugin.app_auth">
+        <xpath expr="//p[@class='text-center'][contains(., 'Odoo database?')]" position="replace">
+            <p class="text-center">
+                Let <t t-esc="friendlyname"/> access your database?
+            </p>
+        </xpath>
+    </template>
+</odoo>
+

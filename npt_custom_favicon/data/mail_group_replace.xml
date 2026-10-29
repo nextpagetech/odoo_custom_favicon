@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="mail.group_mail_notification_type_inbox" model="res.groups">
+            <field name="name">Receive notifications in App</field>
+        </record>
+    </data>
+    <!-- Replace 'Receive notifications in Odoo' with 'Receive notifications in App' -->
+    <!-- <record id="group_mail_notification_type_inbox" model="res.groups">
+        <field name="name">Receive notifications in App</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record> -->
+</odoo>

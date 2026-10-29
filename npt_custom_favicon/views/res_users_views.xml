@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <!-- Remove the 2FA "Learn More" widget -->
+        <record id="res_users_view_totp_remove_doc_link" model="ir.ui.view">
+            <field name="name">res.users.totp.remove.doc.link</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="auth_totp.view_totp_field"/>
+            <field name="arch" type="xml">
+                <xpath expr="//span[@invisible='totp_enabled']//widget[@name='documentation_link']" position="replace"/>
+            </field>
+        </record>
+
+        <!-- Remove the same widget from the main user form -->
+        <record id="res_users_form_totp_remove_doc_link" model="ir.ui.view">
+            <field name="name">res.users.form.totp.remove.doc.link</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="auth_totp.view_totp_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='account_security']//span[@invisible='totp_enabled']//widget[@name='documentation_link']" position="replace"/>
+            </field>
+        </record>
+
+
+        <!-- Replace the API Keys helper text and drop the documentation icon -->
+        <record id="res_users_view_api_keys_branding" model="ir.ui.view">
+            <field name="name">res.users.api.keys.branding</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='page_account_security']//group[.//field[@name='api_key_ids']]//div[hasclass('text-muted')]" position="replace">
+                    <div class="text-muted" colspan="2">
+                        API Keys are used to connect from external tools without the need for a password or Two-factor Authentication.
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

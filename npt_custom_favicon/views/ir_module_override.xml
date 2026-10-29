@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit the core form view -->
+        <record id="view_module_form_custom" model="ir.ui.view">
+            <field name="name">ir.module.module.form.override</field>
+            <field name="model">ir.module.module</field>
+            <field name="inherit_id" ref="base.module_form" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//h1/field[@name='summary']" position="replace">
+                    <field class="fs-2 text-muted" name="branded_summary" invisible="not branded_summary"/>
+                </xpath>
+
+                <xpath expr="//h4/div/field[@name='author']" position="replace">
+                    <field name="branded_author" class="oe_inline" placeholder="Author Name"/>
+                </xpath>
+
+                <!-- Replace the specific <a> link with your custom one -->
+                <xpath
+                    expr="//a[@href='https://odoo.com/pricing?utm_source=db&amp;utm_medium=module#hosting=on_premise']"
+                    position="replace">
+                                  <button type="object" name="action_open_custom_learn_more_url"
+                        class="btn btn-primary me-1"
+                        invisible="not to_buy or state not in ('uninstalled', 'uninstallable')"
+                        role="button">
+                        Visit Site
+                    </button>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="module_view_kanban_override" model="ir.ui.view">
+            <field name="name">ir.module.module.kanban.override</field>
+            <field name="model">ir.module.module</field>
+            <field name="inherit_id" ref="base.module_view_kanban" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//kanban/field[@name='summary']" position="after">
+                    <field name="branded_summary"/>
+                    <field name="branded_author"/>
+                </xpath>
+
+                <xpath expr="//t[@t-name='card']//field[@name='summary']" position="replace">
+                    <field groups="!base.group_no_one" name="branded_summary"/>
+                </xpath>
+
+                <!-- Replace the Upgrade button with custom URL -->
+                <xpath
+                    expr="//a[@href='https://odoo.com/pricing?utm_source=db&amp;utm_medium=module#hosting=on_premise']"
+                    position="replace">
+                    <a type="object" name="action_open_custom_learn_more_url"
+                        class="btn btn-info btn-sm"
+                        invisible="state not in ('uninstalled', 'uninstallable')"
+                        t-if="record.to_buy.raw_value"
+                        role="button"
+                        groups="base.group_system">
+                        Visit Site
+                    </a>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="custom_module_view_kanban_inherit" model="ir.ui.view">
+            <field name="name">ir.module.module.kanban.inherit</field>
+            <field name="model">ir.module.module</field>
+            <field name="inherit_id" ref="base.module_view_kanban" />
+            <field name="arch" type="xml">
+
+                <!-- Replace Learn More in the menu dropdown -->
+                <xpath expr="//t[@t-name='menu']/a[@t-att-href='record.website.raw_value']"
+                    position="replace">
+                    <a t-if="record.website.raw_value"
+                        type="object"
+                        name="action_open_custom_learn_more_url"
+                        role="menuitem"
+                        class="dropdown-item o-hidden-ios">
+                        Learn More
+                    </a>
+                </xpath>
+
+                <!-- Replace Learn More in the card footer -->
+                <xpath expr="//t[@t-name='card']//a[@t-att-href='record.website.raw_value']"
+                    position="replace">
+                    <a type="object"
+                        name="action_open_custom_learn_more_url"
+                        invisible="website in (False, '')"
+                        class="btn btn-sm btn-secondary float-end o-hidden-ios"
+                        role="button">
+                        Learn More
+                    </a>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="module_tree_override_branding" model="ir.ui.view">
+            <field name="name">ir.module.module.tree.override.branding</field>
+            <field name="model">ir.module.module</field>
+            <field name="inherit_id" ref="base.module_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='author']" position="replace">
+                    <field name="branded_author"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit the original view -->
+        <record id="email_compose_message_wizard_form_inherit" model="ir.ui.view">
+            <field name="name">mail.compose.message.form.inherit.sreenidhiraja</field>
+            <field name="model">mail.compose.message</field>
+            <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
+            <field name="arch" type="xml">
+                
+                <!-- Replace placeholder containing 'odoo.com' -->
+                <field name="reply_to" position="attributes">
+                    <attribute name="placeholder">e.g: "info@mycompany.com"</attribute>
+                </field>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

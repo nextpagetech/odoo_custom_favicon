@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_webclient_offline_branding" inherit_id="web.webclient_offline" name="Custom Offline Page Branding">
+        <xpath expr="//div[hasclass('card')]/img" position="replace" />
+        <xpath expr="//div[hasclass('card')]/p" position="replace">
+            <p>Check your network connection and come back here. Application will load as soon as you're back online.</p>
+        </xpath>
+    </template>
+</odoo>

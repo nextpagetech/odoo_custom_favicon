@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- ImportAction: remove the "Import FAQ" DocumentationLink -->
+    <t t-name="import_sidepanel_no_docs.remove_doc_link_in_import_action"
+       t-inherit="ImportAction"
+       t-inherit-mode="extension">
+        <!-- Targets: <DocumentationLink path="'/applications/general/export_import_data.html'"/> -->
+        <xpath expr="//DocumentationLink[contains(@path, 'export_import_data.html')]" position="replace"/>
+        <xpath expr="//div[contains(@class,'o_nocontent_help')]//div[contains(@class,'mt16') and contains(@class,'mb4')]" position="replace"/>
+    </t>
+
+</templates>

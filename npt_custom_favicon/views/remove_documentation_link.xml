@@ -1,0 +1,539 @@
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
+<odoo>
+
+    <data>
+        <!-- remove the documentation link in general settings -->
+        <record id="res_config_settings_view_form_inherit_no_doc_link" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.no.documentation.link</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <!-- remove the documentation_link widget -->
+                <xpath
+                    expr="//widget[@name='documentation_link' and contains(@path, '/applications/general/users.html')]"
+                    position="replace" />
+                <xpath expr="//setting[@id='sms']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='allow_import']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='mail_pluggin_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='module_auth_ldap']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='unsplash']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='product_get_pic_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+
+
+            </field>
+        </record>
+        <!--remove
+        the documentation link in general settings mail -->
+        <record id="res_config_settings_view_form_inherit_npt_email_doc_redirect" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.npt.email.doc.redirect</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="mail.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//setting[@id='email_servers_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                    <attribute name="title">
+                        Using your own email server is required to send/receive emails in Community
+                        and Enterprise versions.
+                        Online users already benefit from a ready-to-use email server
+                        (@mycompany.com).
+                    </attribute>
+                </xpath>
+                <xpath expr="//setting[@id='email-alias-setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <!-- <xpath expr="//setting[@id='tenor_api_key']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='tenor_content_filter']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='message_translation_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath> -->
+            </field>
+        </record>
+
+        <!-- Calendar-specific doc overrides disabled to avoid forcing an optional module dependency. -->
+
+        <!-- remove the documentation link in website settings -->
+        <record id="res_config_settings_view_form_inherit_npt_website" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.npt.website</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="website.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//setting[@id='website_cookies_bar_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='google_analytics_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='cdn_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='google_console_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='plausbile_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+            </field>
+        </record>
+        <!-- Website payment-specific doc overrides disabled to avoid forcing an optional module dependency. -->
+
+        <!-- remove the documentation link in Inventory settings -->
+        <record id="view_stock_settings_inherit" model="ir.ui.view">
+            <field name="name">stock.settings.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="stock.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//setting[@id='product_packs_tracking']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='process_transfers']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='quality_control']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='process_operations_barcodes']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='compute_shipping_costs_ups']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='compute_shipping_costs_dhl']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='compute_shipping_costs_fedex']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='compute_shipping_costs_usps']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='compute_shipping_costs_bpost']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='compute_shipping_costs_easypost']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='compute_shipping_costs_sendcloud']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='compute_shipping_costs_shiprocket']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='compute_shipping_costs_starshipit']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='product_attributes']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='sell_purchase_uom']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='manage_product_packaging']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='full_traceability']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='expiration_dates_serial_numbers']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='owner_stored_products']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='track_product_location']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='use_own_routes']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='process_stock_barcodelookup']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/inventory_and_mrp/inventory/management/delivery/dropshipping.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="res_config_settings_view_form_stock" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.sale.stock.stock</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="stock.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+
+                <!-- Add a new setting after an existing one -->
+                <setting id="warning_info" position="after">
+                    <setting help="When to start shipping">
+                        <field name="default_picking_policy" class="o_light_label w-auto"
+                            widget="selection" />
+                    </setting>
+                </setting>
+
+                <!-- Make the scheduling info block visible -->
+                <xpath expr="//block[@id='schedule_info']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
+
+                <!-- Replace the setting block for security lead time -->
+                <xpath expr="//setting[field[@name='use_security_lead']]" position="replace">
+                    <setting company_dependent="1"
+                        help="Schedule deliveries earlier to avoid delays"
+                        documentation="/custom_favicon/doc_redirect"
+                        title="Margin of error for dates promised to customers. Products will be scheduled for procurement and delivery that many days earlier than the actual promised date, to cope with unexpected delays in the supply chain.">
+                        <field name="use_security_lead" />
+                        <div class="content-group">
+                            <div class="mt16" invisible="not use_security_lead">
+                                <span>Move forward expected delivery dates by <field
+                                        name="security_lead" class="oe_inline" /> days</span>
+                            </div>
+                        </div>
+                    </setting>
+                </xpath>
+                <xpath expr="//setting[field[@name='use_po_lead']]" position="replace">
+                    <setting company_dependent="1"
+                        help="Schedule request for quotations earlier to avoid delays"
+                        documentation="/custom_favicon/doc_redirect"
+                        title="Margin of error for vendor lead times. When the system generates Purchase Orders for reordering products,they will be scheduled that many days earlier to cope with unexpected vendor delays.">
+                        <field name="use_po_lead" />
+                        <div class="content-group">
+                            <div class="mt16" invisible="not use_po_lead">
+                                <span>Move forward expected delivery dates by <field
+                                        name="security_lead" class="oe_inline" /> days</span>
+                            </div>
+                        </div>
+                    </setting>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.stock.account</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="stock.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <block id="production_lot_info" position="after">
+                    <block title="Valuation" name="valuation_setting_container">
+                        <setting id="additional_cost_setting"
+                            title="Affect landed costs on reception operations and split them among products to update their cost price."
+                            documentation="/custom_favicon/doc_redirect"
+                            help="Add additional cost (transport, customs, ...) in the value of the product.">
+                            <field name="module_stock_landed_costs" />
+                            <div class="content-group">
+                                <div name="landed_cost_info" />
+                            </div>
+                        </setting>
+                        <setting invisible="not group_stock_production_lot"
+                            id="group_lot_on_invoice"
+                            help="Lots &amp; Serial numbers will appear on the invoice">
+                            <field name="group_lot_on_invoice" />
+                        </setting>
+                    </block>
+                </block>
+            </field>
+        </record>
+
+        <!-- Sale/sale_management doc overrides disabled because the target setting ids are version-dependent
+             and not required for business functionality. -->
+
+
+        <!-- Naveen -->
+        <!-- crm -->
+        <record id="res_config_settings_view_form_inherit_no_crm" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.crm</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="crm.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <!-- remove the documentation_link widget -->
+                <xpath
+                    expr="//setting[@documentation='/applications/sales/crm/track_leads/lead_scoring.html#assign-leads']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='crm_iap_mine_settings']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- purchase -->
+        <record id="res_config_settings_view_form_inherit_no_purchase" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.purchase</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase" />
+            <field name="arch" type="xml">
+                <!-- remove the documentation_link widget -->
+                <xpath expr="//setting[@id='manage_purchase_agreements']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='quantities_billed_vendor']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='three_way_matching']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/sales/sales/products_prices/products/variants.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='sell_purchase_uom']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <!-- <xpath
+                expr="//setting[@documentation='/applications/sales/sales/products_prices/products/variants.html']"
+                position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>  -->
+            </field>
+        </record>
+        <!-- Removed Droshipping Doc link in Purchase -->
+        <record id="res_config_settings_view_form_inherit_stock" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.stock</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="stock.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <!-- remove the documentation_link widget -->
+                <xpath
+                    expr="//setting[@documentation='/applications/inventory_and_mrp/inventory/shipping/operation/dropshipping.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- mrp -->
+        <record id="res_config_settings_view_form_inherit_no_mrp" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.mrp</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="mrp.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <!-- remove the documentation_link widget -->
+                <xpath expr="//setting[@id='work_order']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/inventory_and_mrp/manufacturing/management/subcontracting.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='mrp_mps']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='security_lead_time']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- invoicing -->
+        <record id="res_config_settings_view_form_inherit_no_invoicing" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.invoicing</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="account.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <!-- remove the documentation_link widget -->
+                <xpath
+                    expr="//setting[@documentation='/applications/finance/fiscal_localizations.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='default_taxes']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='eu_service']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='tax_exigibility']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='main_currency']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='update_exchange_rates']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='send_invoices_followups']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='invoice_delivery_addresses']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='smallest_coinage_currency']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='intrastat_statistics']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/finance/accounting/receivables/customer_payments/online_payment.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='account_batch_payment']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='collect_customer_payment']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='qr_code_invoices']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='sepa_payments']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+
+                <xpath expr="//setting[@id='account_ocr_settings']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- base_vat-specific doc overrides disabled to avoid forcing an optional module dependency. -->
+
+
+        <record id="res_config_settings_view_form_inherit_no_l10n_in" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.l10n.in</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="l10n_in.res_config_settings_view_form_inherit_l10n_in" />
+            <field name="arch" type="xml">
+                <!-- remove the documentation_link widget -->
+                <xpath
+                    expr="//setting[@documentation='/applications/finance/fiscal_localizations/india.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/finance/fiscal_localizations/india.html#india-e-invoicing']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/finance/fiscal_localizations/india.html#indian-e-waybill']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/finance/fiscal_localizations/india.html#indian-check-gstin-status']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- timesheets -->
+        <record id="res_config_settings_view_form_inherit_no_hr_timesheets" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.hr.timesheets</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="hr_timesheet.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <!-- remove the documentation_link widget -->
+                <xpath
+                    expr="//setting[@documentation='/applications/services/timesheets/overview/time_off.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- point of sale -->
+        <!-- <record id="res_config_settings_view_form_inherit_no_point_of_sale" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.point.of.sale</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                
+                <xpath expr="//setting[@id='payment_methods_new']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/sales/point_of_sale/pricing/cash_rounding.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='iface_tipproduct']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='multiple_employee_session']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='flexible_taxes']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='multiple_prices_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='manual_discount']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/sales/point_of_sale/pricing/discounts.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='pos-loyalty']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/sales/point_of_sale/receipts_invoices.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='auto_printing']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/sales/point_of_sale/receipts_invoices.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                    <attribute name="help">Print information on the receipt to allow the customer
+                        to easily access the invoice anytime, from NPT's portal.</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='adyen_payment_terminal_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='stripe_payment_terminal_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath
+                    expr="//setting[@documentation='/applications/sales/point_of_sale/payment_methods/terminals/six.html']"
+                    position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='pos_razorpay_setting']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='customer_display']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='pos_other_devices']" position="attributes">
+                    <attribute name="documentation">/custom_favicon/doc_redirect</attribute>
+                </xpath>
+
+            </field>
+        </record> -->
+
+    </data>
+
+
+</odoo>

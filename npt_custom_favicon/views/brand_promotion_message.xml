@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="brand_promotion_message_npt" inherit_id="web.brand_promotion_message">
+        <xpath expr="//t[@t-out]" position="replace">
+            <t>
+                <t t-set="brand_title"
+                    t-value="(request.env['ir.config_parameter'].sudo().get_param('custom_favicon.branding_app_title') or 'ERP BRo').strip()"/>
+                <t t-set="redirect_url_raw"
+                    t-value="(request.env['ir.config_parameter'].sudo().get_param('custom_favicon.documentation_redirect_url') or '').strip()"/>
+                <t t-set="redirect_url"
+                    t-value="redirect_url_raw if (redirect_url_raw.startswith('http://') or redirect_url_raw.startswith('https://') or not redirect_url_raw) else ('https://%s' % redirect_url_raw)"/>
+                <t t-set="custom_logo_binary"
+                    t-value="request.env['ir.config_parameter'].sudo().get_param('custom_favicon.brand_promotion_logo_binary', default='')"/>
+                <t t-set="custom_logo_mimetype"
+                    t-value="request.env['ir.config_parameter'].sudo().get_param('custom_favicon.brand_promotion_logo_mimetype', default='image/png')"/>
+                <t t-set="logo_src"
+                    t-value="('data:%s;base64,%s' % (custom_logo_mimetype, custom_logo_binary)) if custom_logo_binary else ('/web/image/res.company/%s/logo' % request.env.company.id)"/>
+                <div class="text-center small text-white">
+                    <img t-att-src="logo_src"
+                        t-att-alt="brand_title"
+                        style="height: 20px;" />
+                    <t t-if="redirect_url">
+                        <a t-att-href="redirect_url"
+                            target="_blank"
+                            class="text-decoration-none fw-bold">
+                            <t t-esc="brand_title"/>
+                        </a>
+                    </t>
+                    <t t-else="">
+                        <span class="fw-bold">
+                            <t t-esc="brand_title"/>
+                        </span>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

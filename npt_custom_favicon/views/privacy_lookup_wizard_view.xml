@@ -1,0 +1,17 @@
+<odoo>
+    <record id="privacy_lookup_wizard_view_form" model="ir.ui.view">
+        <field name="name">privacy.lookup.wizard.view.form</field>
+        <field name="model">privacy.lookup.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Privacy Lookup">
+                <sheet>
+                    <group>
+                        <field name="email"/>
+                        <field name="name"/>
+                        <field name="password" readonly="1" password="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

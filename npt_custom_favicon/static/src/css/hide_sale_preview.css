@@ -1,0 +1,10 @@
+.o_nocontent_help .o_sale_action_preview,
+.o_view_nocontent .o_sale_action_preview { display: none !important; }
+
+.o_nocontent_help .o_sale_action_preview + br,
+.o_view_nocontent .o_sale_action_preview + br { display: none !important; }
+
+/* Hide the "Check a sample. It's clean!" link only */
+.o_nocontent_help a[href*="sample_quotation.pdf"] {
+  display: none !important;
+}

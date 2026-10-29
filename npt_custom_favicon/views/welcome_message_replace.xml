@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Keep welcome subject dynamic from General Settings > Application Title -->
+        <function model="res.config.settings" name="sync_welcome_message_subject" />
+    </data>
+</odoo>
+

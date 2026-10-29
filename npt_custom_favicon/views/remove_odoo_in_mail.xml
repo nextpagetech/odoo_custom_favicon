@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Dynamic footer for standard notification layout -->
+        <template id="mail_notification_layout_branding_inherit"
+            inherit_id="mail.mail_notification_layout">
+            <xpath expr="//div[@t-if='show_footer'][.//span[@id='mail_unfollow']]"
+                position="replace">
+                <t t-set="brand_name_raw"
+                    t-value="(company.env['ir.config_parameter'].sudo().get_param('custom_favicon.branding_app_title') or '').strip()" />
+                <t t-set="brand_name" t-value="brand_name_raw or company.name or 'ERP BRo'" />
+                <t t-set="brand_url_raw"
+                    t-value="(company.env['ir.config_parameter'].sudo().get_param('custom_favicon.documentation_redirect_url') or '').strip()" />
+                <t t-set="brand_url"
+                    t-value="brand_url_raw if (brand_url_raw.startswith('http://') or brand_url_raw.startswith('https://')) else ('https://%s' % brand_url_raw if brand_url_raw else '')" />
+                <div t-if="show_footer" style="color: #555555; font-size:11px;">
+                    <t t-if="brand_url">
+                        Powered by
+                        <a target="_blank"
+                            t-att-href="brand_url"
+                            t-att-style="'color: ' + (company.email_secondary_color or '#875A7B') + ';'">
+                            <t t-out="brand_name" />
+                        </a>
+                    </t>
+                    <t t-else="">
+                        Powered by <t t-out="brand_name" />
+                    </t>
+                    <span id="mail_unfollow">
+                        | <a href="/mail/unfollow" style="text-decoration:none; color:#555555;">Unfollow</a>
+                    </span>
+                </div>
+            </xpath>
+        </template>
+
+        <!-- Dynamic footer for light notification layout -->
+        <template id="mail_notification_light_branding_inherit"
+            inherit_id="mail.mail_notification_light">
+            <xpath expr="//tr[td//span[@id='mail_unfollow']]" position="replace">
+                <t t-set="brand_name_raw"
+                    t-value="(company.env['ir.config_parameter'].sudo().get_param('custom_favicon.branding_app_title') or '').strip()" />
+                <t t-set="brand_name" t-value="brand_name_raw or company.name or 'ERP BRo'" />
+                <t t-set="brand_url_raw"
+                    t-value="(company.env['ir.config_parameter'].sudo().get_param('custom_favicon.documentation_redirect_url') or '').strip()" />
+                <t t-set="brand_url"
+                    t-value="brand_url_raw if (brand_url_raw.startswith('http://') or brand_url_raw.startswith('https://')) else ('https://%s' % brand_url_raw if brand_url_raw else '')" />
+                <tr>
+                    <td align="center" style="min-width: 590px;">
+                        <t t-if="brand_url">
+                            Powered by
+                            <a target="_blank"
+                                t-att-href="brand_url"
+                                t-att-style="'color: ' + (company.email_secondary_color or '#875A7B') + ';'">
+                                <t t-out="brand_name" />
+                            </a>
+                        </t>
+                        <t t-else="">
+                            Powered by <t t-out="brand_name" />
+                        </t>
+                        <span id="mail_unfollow">
+                            | <a href="/mail/unfollow" style="text-decoration:none; color:#555555;">Unfollow</a>
+                        </span>
+                    </td>
+                </tr>
+            </xpath>
+        </template>
+    </data>
+</odoo>
+

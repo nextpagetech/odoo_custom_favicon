@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="res_config_settings_view_form_inherit_base" model="ir.ui.view">
+            <field name="name">res.config.settings.base</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+            <field name="priority" eval="100" /> <!-- Ensure it overrides existing ones -->
+            <field name="arch" type="xml">
+                <!-- Target the specific field and remove the widget -->
+                <xpath
+                    expr="//setting[@id='inter_company']/field[@name='module_account_inter_company_rules']"
+                    position="attributes">
+                    <attribute name="widget" />
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Remove upgrade widget from maintenance settings -->
+        <record id="res_config_settings_view_form_inherit_remove_upgrade" model="ir.ui.view">
+            <field name="name">res.config.settings.remove.upgrade.widget</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="maintenance.res_config_settings_view_form" />
+            <field name="priority" eval="100" /> <!-- Ensure it overrides existing ones -->
+            <field name="arch" type="xml">
+                <!-- Target the specific field and remove the widget -->
+                <field name="module_maintenance_worksheet" position="attributes">
+                    <attribute name="widget" />
+                </field>
+            </field>
+        </record>
+
+        <!-- Website-sale delivery provider widgets are version-specific and not required for module behavior.
+             Keeping this override disabled avoids binding custom_favicon to an optional app view. -->
+
+        <!-- Remove upgrade widget from website settings -->
+        <record id="res_config_settings_view_form_inherit_remove_website" model="ir.ui.view">
+            <field name="name">res.config.settings.widget</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="website.res_config_settings_view_form" />
+            <field name="priority" eval="100" /> <!-- Ensure it overrides existing ones -->
+            <field name="arch" type="xml">
+                <!-- Target the specific field and remove the widget -->
+                <field name="module_marketing_automation" position="attributes">
+                    <attribute name="widget" />
+                </field>
+            </field>
+        </record>
+
+        <!-- Remove upgrade widget from purchase settings -->
+        <record id="res_config_settings_view_form_inherit_remove_purchase" model="ir.ui.view">
+            <field name="name">res.config.settings.purchase</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase" />
+            <field name="priority" eval="100" /> <!-- Ensure it overrides existing ones -->
+            <field name="arch" type="xml">
+                <!-- Target the specific field and remove the widget -->
+                <field name="module_account_3way_match" position="attributes">
+                    <attribute name="widget" />
+                </field>
+            </field>
+        </record>
+
+        <!-- Remove upgrade widget from inventory settings -->
+        <record id="res_config_settings_view_form_inherit_remove_stock" model="ir.ui.view">
+            <field name="name">res.config.settings.stock</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="stock.res_config_settings_view_form" />
+            <field name="priority" eval="100" /> <!-- Ensure it overrides existing ones -->
+            <field name="arch" type="xml">
+                <!-- Target the specific field and remove the widget -->
+                <field name="module_quality_control" position="attributes">
+                    <attribute name="widget" />
+                </field>
+                <field name="module_stock_barcode" position="attributes">
+                    <attribute name="widget" />
+                </field>
+            </field>
+        </record>
+
+        <!-- Remove upgrade widget from mrp settings -->
+        <record id="res_config_settings_view_form_inherit_remove_mrp" model="ir.ui.view">
+            <field name="name">res.config.settings.mrp</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="mrp.res_config_settings_view_form" />
+            <field name="priority" eval="100" /> <!-- Ensure it overrides existing ones -->
+            <field name="arch" type="xml">
+                <!-- Target the specific field and remove the widget -->
+                <xpath
+                    expr="//setting[@id='process_mrp_barcodes']/field[@name='module_stock_barcode']"
+                    position="attributes">
+                    <attribute name="widget" />
+                </xpath>
+                <xpath
+                    expr="//setting[@id='quality_control_mrp']/field[@name='module_quality_control']"
+                    position="attributes">
+                    <attribute name="widget" />
+                </xpath>
+                <xpath
+                    expr="//setting[@id='quality_control_mrp']//*[name()='field'][@name='module_quality_control_worksheet']"
+                    position="attributes">
+                    <attribute name="widget" />
+                </xpath>
+                <field name="module_mrp_mps" position="attributes">
+                    <attribute name="widget" />
+                </field>
+
+            </field>
+        </record>
+
+        <!-- Remove upgrade widget from point of sale settings -->
+        <!-- <record id="res_config_settings_view_form_inherit_remove_point_of_sale" model="ir.ui.view">
+            <field name="name">res.config.settings.point_of_sale</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+            <field name="priority" eval="100" /> 
+            <field name="arch" type="xml">
+                <xpath
+                    expr="//setting[@id='preparation_display']/field[@name='module_pos_preparation_display']"
+                    position="attributes">
+                    <attribute name="widget" />
+                </xpath>
+            </field>
+        </record> -->
+
+        <!-- Remove upgrade widget from timesheet_grid settings -->
+        <record id="res_config_settings_view_form_inherit_remove_timesheet_grid" model="ir.ui.view">
+            <field name="name">res.config.settings.timesheet_grid</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="hr_timesheet.res_config_settings_view_form" />
+            <field name="priority" eval="100" /> <!-- Ensure it overrides existing ones -->
+            <field name="arch" type="xml">
+                <!-- Target the specific field and remove the widget -->
+                <field name="reminder_user_allow" position="attributes">
+                    <attribute name="widget" />
+                </field>
+                <field name="reminder_allow" position="attributes">
+                    <attribute name="widget" />
+                </field>
+            </field>
+        </record>
+
+        <!-- Remove upgrade widget from Invoicing settings -->
+        <record id="res_config_settings_view_form_inherit_remove_account" model="ir.ui.view">
+            <field name="name">res.config.settings.account</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="account.res_config_settings_view_form" />
+            <field name="priority" eval="100" /> <!-- Ensure it overrides existing ones -->
+            <field name="arch" type="xml">
+                <!-- Target the specific field and remove the widget -->
+                <xpath
+                    expr="//setting[@id='update_exchange_rates']/field[@name='module_currency_rate_live']"
+                    position="attributes">
+                    <attribute name="widget" />
+                </xpath>
+                <xpath
+                    expr="//setting[@id='intrastat_statistics']/field[@name='module_account_intrastat']"
+                    position="attributes">
+                    <attribute name="widget" />
+                </xpath>
+                <xpath
+                    expr="//setting[@id='account_batch_payment']/field[@name='module_account_batch_payment']"
+                    position="attributes">
+                    <attribute name="widget" />
+                </xpath>
+                <xpath
+                    expr="//setting[@id='collect_customer_payment']/field[@name='module_account_sepa_direct_debit']"
+                    position="attributes">
+                    <attribute name="widget" />
+                </xpath>
+                <xpath
+                    expr="//setting[@id='sepa_payments']/field[@name='module_account_iso20022']"
+                    position="attributes">
+                    <attribute name="widget" />
+                </xpath>
+                <xpath
+                    expr="//setting[@id='account_ocr_settings']/field[@name='module_account_extract']"
+                    position="attributes">
+                    <attribute name="widget" />
+                </xpath>
+                <field name="module_l10n_in_enet_batch_payment" position="attributes">
+                    <attribute name="widget" />
+                </field>
+            </field>
+        </record>
+
+        <record id="res_config_settings_view_form_inherit_custom" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.remove.widget</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="sale_timesheet.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <!-- Replace the field node to remove the widget -->
+                <xpath expr="//field[@name='invoice_policy']" position="replace">
+                    <field name="invoice_policy" invisible="1" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

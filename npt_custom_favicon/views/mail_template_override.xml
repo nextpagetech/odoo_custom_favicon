@@ -1,0 +1,8 @@
+<odoo>
+    <!-- Override existing mail_template_test record -->
+    <record id="mail_template_test" model="mail.template">
+        <field name="body_html" type="html">
+            <div>Hello Sreenidhiraja</div>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <function model="ir.module.module" name="write">
+            <value model="ir.module.module" search="[('name', '=', 'erp_core_installer')]"/>
+            <value eval="{'summary': 'Installs core ERPBRO modules', 'author': 'ERPBRO'}"/>
+        </function>
+    </data>
+</odoo>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- in geneneral settings mail -->
+        <record id="res_config_settings_view_form_inherit_npt_email" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.npt.email</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="mail.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//setting[@id='email_servers_setting']" position="attributes">
+                    <attribute name="title">
+                        Using your own email server is required to send/receive emails in Community
+                        and Enterprise versions.
+                        Online users already benefit from a ready-to-use email server
+                        (@mycompany.com).
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- in geneneral settings -->
+        <record id="res_config_settings_view_form_inherit_npt_partner_autocomplete"
+            model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.npt.partner_autocomplete</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//setting[@id='partner_autocomplete']" position="attributes">
+                    <attribute name="title">When populating your address book, Company provides a list
+                        of matching companies. When selecting one item, the company data and logo
+                        are auto-filled.</attribute>
+                </xpath>
+                <xpath expr="//setting[@id='iap_credits_setting']" position="replace">
+                </xpath>
+                <xpath
+                    expr="//block[@id='user_default_rights']/setting[.//button[@name='%(base.action_apikeys_admin)d']]"
+                    position="attributes">
+                    <attribute name="help">
+                        API Keys allow your users to access company with external tools when
+                        multi-factor authentication is enabled.
+                    </attribute>
+                </xpath>
+                <xpath
+                    expr="//block[@id='pwa_settings']/setting"
+                    position="replace">
+                    <setting id="pwa_web_app_name_setting"
+                        help="This name will be used for the application when it is installed through the browser.">
+                        <field name="web_app_name" placeholder="" />
+                    </setting>
+                    <setting id="pwa_app_icon_setting"
+                        help="Upload the icon used in the browser install popup and installed app shortcut.">
+                        <field name="pwa_app_icon"
+                            widget="binary"
+                            filename="pwa_app_icon_filename"
+                            options="{'accepted_file_extensions': '.png,.jpg,.jpeg,.webp,.ico'}" />
+                        <field name="pwa_app_icon_filename" invisible="1" />
+                    </setting>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- crm -->
+        <record
+            id="res_config_settings_view_form_inherit_npt_crm" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.npt.crm</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="crm.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//setting[@id='ringover-voip']" position="attributes">
+                    <attribute name="help">
+                        Make and receive calls with Ringover's dialer. Track calls, SMS
+                        messages, and get AI-powered transcripts of your conversations. </attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- account invoicing -->
+        <record
+            id="res_config_settings_view_form_inherit_npt_account" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.npt.account</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="account.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//setting[@id='autopost_bills']" position="attributes">
+                    <attribute name="help">
+                        After importing three bills for a vendor without making changes, Company will
+                        suggest automatically validating future bills. You can toggle this feature
+                        at any time in the vendor's profile.
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- attendance -->
+        <record
+            id="res_config_settings_view_form_inherit_npt_hr_attendance" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.npt.hr_attendance</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="hr_attendance.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath
+                    expr="//a[@href='https://www.odoo.com/documentation/master/applications/hr/attendances/hardware.html']"
+                    position="replace">
+                </xpath>
+                <xpath expr="//field[@name='attendance_from_systray']/ancestor::setting"
+                    position="attributes">
+                    <attribute name="help">Allow Users to Check in/out.</attribute>
+                </xpath>
+                <!-- <xpath expr="//app" position="replace">
+                </xpath> -->
+
+                <xpath expr="//setting[field[@name='attendance_kiosk_mode']]" position="replace">
+                </xpath>
+                <xpath expr="//setting[field[@name='attendance_kiosk_url']]" position="replace">
+                </xpath>
+                <!-- <xpath expr="//setting[button[@name='regenerate_kiosk_key']]"
+                position="replace">
+                </xpath> -->
+
+            </field>
+        </record>
+
+        <!-- in geneneral settings about -->
+        <record
+            id="res_config_settings_view_form_inherit_remove_about" model="ir.ui.view">
+            <field name="name">res.config.settings.remove.about</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='about']" position="replace">
+                    This will remove the entire About section
+                </xpath>
+            </field>
+        </record>
+
+        <record id="res_config_settings_view_form_inherit_doc_redirect_url" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.doc.redirect.url</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//setting[@id='allow_import']" position="after">
+                    <setting id="documentation_redirect_url_setting"
+                        help="If set, all backend documentation links open this URL.">
+                        <field name="documentation_redirect_url"
+                            placeholder="https://example.com/" />
+                    </setting>
+                    <setting id="branding_app_title_setting"
+                        help="Set the browser title brand name used across backend pages.">
+                        <field name="branding_app_title"
+                            placeholder="ERP Bro" />
+                    </setting>
+                    <setting id="branding_favicon_url_setting"
+                        help="Upload the favicon to use in browser tabs. If empty, the default module favicon is used.">
+                        <field name="branding_favicon"
+                            widget="binary"
+                            filename="branding_favicon_filename"
+                            options="{'accepted_file_extensions': '.ico,.png,.svg'}" />
+                        <field name="branding_favicon_filename" invisible="1" />
+                    </setting>
+                    <setting id="brand_promotion_logo_setting"
+                        help="Upload the footer promotion logo. If empty, the active company logo is used.">
+                        <field name="brand_promotion_logo"
+                            widget="binary"
+                            filename="brand_promotion_logo_filename"
+                            options="{'accepted_file_extensions': '.png,.jpg,.jpeg,.svg,.webp'}" />
+                        <field name="brand_promotion_logo_filename" invisible="1" />
+                    </setting>
+                </xpath>
+            </field>
+        </record>
+        <!-- point of sale -->
+        <!-- <record
+            id="res_config_settings_view_form_inherit_remove_about" model="ir.ui.view">
+            <field name="name">res.config.settings.remove.about</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath
+        expr="//div[@name='point_of_sale_use_ticket_qr_code']/ancestor::div[@class='o_setting_box']//div[@class='text-muted']"
+                    position="replace">
+                </xpath>
+
+            </field>
+        </record> -->
+
+    </data>
+</odoo>
